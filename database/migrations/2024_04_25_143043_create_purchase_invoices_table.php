@@ -16,6 +16,8 @@ return new class extends Migration
             $table->date('date');
             $table->string('invoice_number')->index();
             $table->foreignId('supplier_id')->constrained('suppliers');
+            $table->boolean('checked')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -86,7 +86,8 @@ class UploadController extends Controller
             } else {
                 $book = new Book([
                     'title'        => $data['book_title'],
-                    'stock'             => 'USA',
+                    'stock'             => $data['stock'],
+                    'book_code'             => $data['book_code'],
                     'qty'     => $data['qty'],
                     'purchase_currency' => $data['purch_currency'],
                     'purchase_rate'     => $data['purch_ex'],
@@ -97,6 +98,15 @@ class UploadController extends Controller
                 $purchaseinvoice->books()->save($book);
             }
 
+
+
+
+
+
+
+
+            if($data['sales_inv_date']!== null || $data['sales_inv_date'] !== '') {
+                $salesDate = null;
 
 
             // if book is sold in Excel file, format the invoice date
@@ -117,6 +127,7 @@ class UploadController extends Controller
                     'sales_rate'       => $data['sales_ex'],
                     'sales_gel'        => $data['sales_price_gel'],
                     'sales_amount'      => $data['sales_price'],
+                    'sales_location'      => $data['sales_location'],
                     'sales_invoice_id' => $salesInvoice->id
                 ]);
 
@@ -139,6 +150,10 @@ class UploadController extends Controller
                 $salesInvoice->books()->save($updatable);
 
             }
+
+            }
+
+
         }
 
         return redirect()->back();

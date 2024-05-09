@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" data-nav-layout="vertical" class="light" data-header-styles="light" data-menu-styles="dark">
+<html lang="en" dir="ltr" data-nav-layout="vertical" class="dark" data-header-styles="dark" data-menu-styles="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -11,29 +11,37 @@
           content="html dashboard,tailwind css,tailwind admin dashboard,template dashboard,html and css template,tailwind dashboard,tailwind css templates,admin dashboard html template,tailwind admin,html panel,template tailwind,html admin template,admin panel html">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="../assets/images/brand-logos/favicon.ico">
+    <link rel="shortcut icon" href="{{asset('assets/images/logo.png')}}">
 
     <!-- Main JS -->
-    <script src="{{asset('assets/js/main.js')}}"></script>
+{{--    <script src="{{asset('assets/js/main.js')}}"></script>--}}
 
     <!-- Style Css -->
-    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+{{--    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">--}}
 
     <!-- Simplebar Css -->
-    <link rel="stylesheet" href="{{asset('assets/libs/simplebar/simplebar.min.css')}}">
+{{--    <link rel="stylesheet" href="{{asset('assets/libs/simplebar/simplebar.min.css')}}">--}}
 
     <!-- Color Picker Css -->
-    <link rel="stylesheet" href="{{asset('assets/libs/@simonwep/pickr/themes/nano.min.css')}}">
+{{--    <link rel="stylesheet" href="{{asset('assets/libs/@simonwep/pickr/themes/nano.min.css')}}">--}}
 
-    <link rel="stylesheet" href="{{asset('assets/libs/prismjs/themes/prism-coy.min.css')}}">
+{{--    <link rel="stylesheet" href="{{asset('assets/libs/prismjs/themes/prism-coy.min.css')}}">--}}
 
+{{--    <link rel="stylesheet" href="{{asset('assets/libs/flatpickr/flatpickr.min.css')}}">--}}
     {{--  DATATABLES CSS --}}
+
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.5/css/dataTables.dataTables.css"/>
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.0.2/css/buttons.dataTables.css"/>
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.2/css/responsive.dataTables.css">
 
+    <script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2" crossorigin="anonymous" ></script>
+
+{{--    <link  rel="stylesheet" href="{{asset('assets/css/glightbox.css')}}">--}}
     <!-- Tom Select Css -->
-    <link rel="stylesheet" href="{{asset('assets/libs/tom-select/css/tom-select.default.min.css')}}">
+{{--    <link rel="stylesheet" href="{{asset('assets/libs/tom-select/css/tom-select.default.min.css')}}">--}}
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
 
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
@@ -61,9 +69,26 @@
             /*padding-left: 0;*/
         }
 
+        .logout:hover{
+            cursor:pointer;
+            color: purple!important;
+        }
+
+.flatpickr-month{
+    height: 50px!important;
+}
+        .numInputWrapper{
+            height: 50px!important;
+        }
+
+        .arrowUp{
+            color: red!important;
+        }
+
+
 
     </style>
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 <body>
@@ -548,10 +573,23 @@
     <!-- Start::content  -->
     <div class="content  main-index">
         <!-- Start::main-content -->
-        <div class="main-content">
+        <div class="main-content ">
 
             @yield('upload')
             @yield('main')
+            @yield('editPurchase')
+            @yield('editSales')
+            @yield('suppliers')
+            @yield('customers')
+            @yield('deleted')
+            @yield('stats')
+            @yield('changes')
+            @yield('users')
+            @yield('stock')
+            @yield('htmx')
+
+            @yield('contrahents')
+
         </div>
     </div>
     <!-- End::content  -->
@@ -571,40 +609,52 @@
 <div id="responsive-overlay"></div>
 
 <!-- Preline JS -->
-<script src="{{asset('assets/libs/preline/preline.js')}}"></script>
+{{--<script src="{{asset('assets/libs/preline/preline.js')}}"></script>--}}
 
 <!-- popperjs -->
-<script src="{{asset('assets/libs/@popperjs/core/umd/popper.min.js')}}"></script>
+{{--<script src="{{asset('assets/libs/@popperjs/core/umd/popper.min.js')}}"></script>--}}
 
 <!-- Color Picker JS -->
-<script src="{{asset('assets/libs/@simonwep/pickr/pickr.es5.min.js')}}"></script>
+{{--<script src="{{asset('assets/libs/@simonwep/pickr/pickr.es5.min.js')}}"></script>--}}
 
 <!-- sidebar JS -->
-<script src="{{asset('assets/js/defaultmenu.js')}}"></script>
+{{--<script src="{{asset('assets/js/defaultmenu.js')}}"></script>--}}
 
 <!-- sticky JS -->
-<script src="{{asset('assets/js/sticky.js')}}"></script>
+{{--<script src="{{asset('assets/js/sticky.js')}}"></script>--}}
 
 <!-- Switch JS -->
-<script src="{{asset('assets/js/switch.js')}}"></script>
+{{--<script src="{{asset('assets/js/switch.js')}}"></script>--}}
 
 <!-- Simplebar JS -->
-<script src="{{asset('assets/libs/simplebar/simplebar.min.js')}}"></script>
+{{--<script src="{{asset('assets/libs/simplebar/simplebar.min.js')}}"></script>--}}
 
 
 <!-- Custom-Switcher JS -->
-<script src="{{asset('assets/js/custom-switcher.js')}}"></script>
+{{--<script src="{{asset('assets/js/custom-switcher.js')}}"></script>--}}
 <!-- Prism JS -->
-<script src="{{asset('assets/libs/prismjs/prism.js')}}"></script>
-<script src="{{asset('assets/js/prism-custom.js')}}"></script>
+{{--<script src="{{asset('assets/libs/prismjs/prism.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/prism-custom.js')}}"></script>--}}
 <!-- Modal JS -->
-<script src="{{asset('assets/js/modal.js')}}"></script>
+{{--<script src="{{asset('assets/js/modal.js')}}"></script>--}}
 <!-- Custom JS -->
-<script src="{{asset('assets/js/custom.js')}}"></script>
-<!-- Tom Select JS -->
-<script src="{{asset('assets/libs/tom-select/js/tom-select.complete.min.js')}}"></script>
-<script src="{{asset('assets/js/tom-select.js')}}"></script>
+{{--<script src="{{asset('assets/js/custom.js')}}"></script>--}}
 
+<!-- Tom Select JS -->
+{{--<script src="{{asset('assets/libs/tom-select/js/tom-select.complete.min.js')}}"></script>--}}
+{{--@if(request()->routeIs('main')||request()->routeIs('sales.edit')||request()->routeIs('purchase.edit'))--}}
+{{--    <script>--}}
+{{--        console.log('hi')--}}
+
+{{--    </script>--}}
+{{--<script src="{{asset('assets/js/tom-select.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/customerTomSelect.js')}}"></script>--}}
+{{--@endif--}}
+
+{{--<script src="{{asset('assets/js/glightbox.js')}}"></script>--}}
+<!-- Date & Time Picker JS -->
+{{--<script src="{{asset('assets/libs/flatpickr/flatpickr.min.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/date-time_pickers.js')}}"></script>--}}
 
 {{--    Datatables--}}
 {{--<script src="https://code.jquery.com/jquery-3.7.1.js"></script>--}}
@@ -616,16 +666,21 @@
 <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.print.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.colVis.min.js"></script>
+<script src="https://cdn.datatables.net/colreorder/2.0.1/js/dataTables.colReorder.js"></script>
+<script src="https://cdn.datatables.net/colreorder/2.0.1/js/colReorder.dataTables.js"></script>
 
 
 
+{{--//Deleted--}}
+
+@if(request()->routeIs('deleted'))
 <script>
 
-    let table = new DataTable('#example', {
+    let deletedTable = new DataTable('#deleted', {
         //Generall SETTINGS
         lengthMenu: [10, 25, 50, {label: 'All', value: -1}],
         language: {
-            url: '//cdn.datatables.net/plug-ins/2.0.5/i18n/ka.json',
+            url: 'https://cdn.datatables.net/plug-ins/2.0.5/i18n/ka.json',
         },
         scrollX: true,
         scrollY: 700,
@@ -663,14 +718,14 @@
 
             // Purchase currency Totals
             total = api
-                .column(6)
+                .column(8)
                 .data()
                 .reduce((a, b) => intVal(a) + intVal(b), 0);
 
-
+w
 
             pageTotal = api
-                .column(6, {page: 'current'})
+                .column(8, {page: 'current'})
                 .data()
                 .reduce((a, b) => intVal(a) + intVal(b), 0);
 
@@ -683,7 +738,7 @@
             }).format(total);
             // Update footer
 
-            api.column(6).footer().innerHTML =
+            api.column(8).footer().innerHTML =
                 // '$' + pageTotal + ' ( $' + total + ' total)';
                 // formatPageTotal +' '+ '('+ formattotal +' ' + ' total)';
                 formatPageTotal;
@@ -760,6 +815,9 @@
             .search(this.value)
             .draw();
     });
+
+
+
     $('#col1').on('keyup', function () {
         table
             .columns(1)
@@ -803,14 +861,284 @@
             .columns(11)
             .search(this.value)
             .draw();
+
+
+
+</script>
+@endif
+
+<script>
+
+    let table;
+
+    table = new DataTable('#example', {
+        //Generall SETTINGS
+        // lengthMenu: [10, 25, 50, {label: 'All', value: -1}],
+        lengthMenu: [ {label: 'All', value: -1}],
+        language: {
+            url: 'https://cdn.datatables.net/plug-ins/2.0.5/i18n/ka.json',
+        },
+        scrollX: true,
+        scrollY: 700,
+
+        layout: {
+
+            topStart: {
+                buttons: ['pageLength', 'colvis', 'excel'],
+                // pageLength: {
+                //   menu: [ 10, 25, 50, 100,5000 ]
+                // }
+            },
+
+            topEnd: {
+                search: '',
+            }
+        },
+
+        // TOTALS
+        footerCallback: function (row, data, start, end, display) {
+            let api = this.api();
+
+            let intVal = function (i) {
+                return typeof i === 'string'
+                    ? i.replace(/[\$,]/g, '') * 1
+                    : typeof i === 'number'
+                        ? i
+                        : 0;
+            };
+
+            // Purchase currency Totals
+            total = api
+                .column(7)
+                .data()
+                .reduce((a, b) => intVal(a) + intVal(b), 0);
+
+
+
+            pageTotal = api
+                .column(7, {page: 'current'})
+                .data()
+                .reduce((a, b) => intVal(a) + intVal(b), 0);
+
+            const formatPageTotal = new Intl.NumberFormat('en-US', {
+                maximumFractionDigits: 2,
+            }).format(pageTotal);
+
+            const formattotal = new Intl.NumberFormat('en-US', {
+                maximumFractionDigits: 2,
+            }).format(total);
+            // Update footer
+
+            api.column(7).footer().innerHTML =
+                // '$' + pageTotal + ' ( $' + total + ' total)';
+                // formatPageTotal +' '+ '('+ formattotal +' ' + ' total)';
+                formatPageTotal;
+
+
+
+
+            // Purchase GEL Totals
+
+            // Total over this page
+            pageTotal2 = api
+                .column(9, {page: 'current'})
+                .data()
+                .reduce((a, b) => intVal(a) + intVal(b), 0);
+
+            const formatPageTotal2 = new Intl.NumberFormat('en-US', {
+                maximumFractionDigits: 2,
+            }).format(pageTotal2);
+
+
+            api.column(9).footer().innerHTML =
+                // '$' + pageTotal + ' ( $' + total + ' total)';
+                // formatPageTotal +' '+ '('+ formattotal +' ' + ' total)';
+                formatPageTotal2;
+
+
+
+            // Sales currency Totals
+
+            // Total over this page
+            pageTotal3 = api
+                .column(15, {page: 'current'})
+                .data()
+                .reduce((a, b) => intVal(a) + intVal(b), 0);
+
+            const formatPageTotal3 = new Intl.NumberFormat('en-US', {
+                maximumFractionDigits: 2,
+            }).format(pageTotal3);
+
+
+            api.column(15).footer().innerHTML =
+                // '$' + pageTotal + ' ( $' + total + ' total)';
+                // formatPageTotal +' '+ '('+ formattotal +' ' + ' total)';
+                formatPageTotal3;
+
+
+
+            // Sales GEL Totals
+
+            pageTotal4 = api
+                .column(16, {page: 'current'})
+                .data()
+                .reduce((a, b) => intVal(a) + intVal(b), 0);
+
+            const formatPageTotal4 = new Intl.NumberFormat('en-US', {
+                maximumFractionDigits: 2,
+            }).format(pageTotal4);
+
+
+            api.column(16).footer().innerHTML =
+                // '$' + pageTotal + ' ( $' + total + ' total)';
+                // formatPageTotal +' '+ '('+ formattotal +' ' + ' total)';
+                formatPageTotal4;
+
+
+        },
+
+
     });
+
+
+
+
+    $('#col0').on('keyup', function () {
+        table
+            .columns(1)
+            .search(this.value)
+            .draw();
+    });
+
+
+    $('#col1').on('keyup', function () {
+        console.log( table
+            .columns(2).search(this.value))
+        table
+            .columns(2)
+            .search(this.value)
+            .draw();
+    });
+
+
+    $('#col2').on('keyup', function () {
+        table
+            .columns(3)
+            .search(this.value)
+            .draw();
+    });
+
+    $('#col3').on('keyup', function () {
+        table
+            .columns(4)
+            .search(this.value)
+            .draw();
+    });
+    $('#col4').on('keyup', function () {
+        table
+            .columns(5)
+            .search(this.value)
+            .draw();
+    });
+
+
+    // Sales
+    $('#col9').on('keyup', function () {
+        table
+            .columns(10)
+            .search(this.value)
+            .draw();
+    });
+    $('#col10').on('keyup', function () {
+        table
+            .columns(11)
+            .search(this.value)
+            .draw();
+    });
+    $('#col11').on('keyup', function () {
+        table
+            .columns(12)
+            .search(this.value)
+            .draw();
+    });
+
+
+
 
 </script>
 
-<script src="https://cdn.datatables.net/colreorder/2.0.1/js/dataTables.colReorder.js"></script>
-<script src="https://cdn.datatables.net/colreorder/2.0.1/js/colReorder.dataTables.js"></script>
 
 
+<script>
+    let customerTable = new DataTable('#customerTable', {
+        //Generall SETTINGS
+        // lengthMenu: [10, 25, 50, {label: 'All', value: -1}],
+        lengthMenu: [ {label: 'All', value: -1}],
+        language: {
+            url: 'https://cdn.datatables.net/plug-ins/2.0.5/i18n/ka.json',
+        },
+        scrollX: true,
+        scrollY: 700,
+
+        layout: {
+
+            topStart: {
+                buttons: ['pageLength', 'excel'],
+
+        },
+
+    }
+    });
+</script>
+
+
+<script>
+    let changesTable = new DataTable('#changes', {
+        //Generall SETTINGS
+        lengthMenu: [ {label: 'All', value: -1}],
+        language: {
+            url: 'https://cdn.datatables.net/plug-ins/2.0.5/i18n/ka.json',
+        },
+        scrollX: true,
+        scrollY: 700,
+
+        layout: {
+
+            topStart: {
+                buttons: ['pageLength', 'excel'],
+
+            },
+
+        }
+    });
+</script>
+
+
+
+<script>
+    let supplierTable = new DataTable('#supplierTable', {
+        //Generall SETTINGS
+        lengthMenu: [ {label: 'All', value: -1}],
+        language: {
+            url: 'https://cdn.datatables.net/plug-ins/2.0.5/i18n/ka.json',
+        },
+        scrollX: true,
+        scrollY: 700,
+
+        layout: {
+
+            topStart: {
+                buttons: ['pageLength', 'excel'],
+
+            },
+
+        }
+    });
+
+
+</script>
+
+@if(request()->routeIs('main')||request()->routeIs('purchase.edit')||request()->routeIs('sales.edit'))
 {{--  Purchase   Dynamic Addition--}}
 <script>
     // Initialise the user number
@@ -850,8 +1178,6 @@
 
 
 </script>
-
-
 {{--  Sales   Dynamic Addition--}}
 <script>
     // Initialise the user number
@@ -902,161 +1228,43 @@
 
 
 </script>
-
+@endif
 
 {{--PURCHASE SALES SUM and EX rate--}}
-<script src="{{asset('assets/js/nbgPurchase.js')}}"></script>
+{{--<script src="{{asset('assets/js/nbgPurchase.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/nbgSales.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/purchaseSum.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/salesSum.js')}}"></script>--}}
+
+{{--Changes Page--}}
 <script>
+    const reviews = document.querySelectorAll('.review');
+    const changereviewforms = document.querySelectorAll('.changereviewform');
+
+    reviews.forEach((e,index) => {
+        console.log(e)
+        e.addEventListener('change', () => {
+            changereviewforms[index].submit();
+        });
+    });
+</script>
 
 
-    const purchaseModal = document.getElementById('purchaseModal')
 
-// PURCHASE
-    purchaseModal.addEventListener('mousemove', function () {
-        const purchase_ex_rate = document.getElementById('purchase_ex_rate')
-        const purchasePrice = document.querySelectorAll('.purchasePrice')
-        const purchaseGEL = document.querySelectorAll('.purchaseGel')
-        const totalGEL = document.getElementById('totalGEL')
-        const totalCurrency = document.getElementById('totalCurrency')
-
-        if (purchase_ex_rate.value != 0) {
-
-            // Book Price
-            for (let i = 0; i < purchasePrice.length; i++) {
-                purchaseGEL[i].value = (purchasePrice[i].value * purchase_ex_rate.value).toFixed(2)
-
-                totalGEL.innerHTML += purchaseGEL[i].value
-            }
-
-
-            // Invoice Subtotals
-            let subtotalCurrency = 0;
-            purchasePrice.forEach(function (element) {
-                subtotalCurrency += parseFloat(element.value) || 0;
-            });
-
-            totalCurrency.innerHTML = Number(subtotalCurrency.toFixed(2));
-
-            let subtotalGel = 0;
-            purchaseGEL.forEach(function (element) {
-                subtotalGel += parseFloat(element.value) || 0;
-            });
-            totalGEL.innerHTML = Number(subtotalGel.toFixed(2));
-
-        }
-
-    })
-
-    purchaseModal.addEventListener('keyup', function () {
-        const purchase_ex_rate = document.getElementById('purchase_ex_rate')
-        const purchasePrice = document.querySelectorAll('.purchasePrice')
-        const purchaseGEL = document.querySelectorAll('.purchaseGel')
-        const totalGEL = document.getElementById('totalGEL')
-        const totalCurrency = document.getElementById('totalCurrency')
-
-        if (purchase_ex_rate.value != 0) {
-
-            // Book Price
-            for (let i = 0; i < purchasePrice.length; i++) {
-                purchaseGEL[i].value = (purchasePrice[i].value * purchase_ex_rate.value).toFixed(2)
-
-                totalGEL.innerHTML += purchaseGEL[i].value
-            }
-
-
-            // Invoice Subtotals
-            let subtotalCurrency = 0;
-            purchasePrice.forEach(function (element) {
-                subtotalCurrency += parseFloat(element.value) || 0;
-            });
-
-            totalCurrency.innerHTML = Number(subtotalCurrency.toFixed(2));
-
-            let subtotalGel = 0;
-            purchaseGEL.forEach(function (element) {
-                subtotalGel += parseFloat(element.value) || 0;
-            });
-            totalGEL.innerHTML = Number(subtotalGel.toFixed(2));
-
-        }
-
-    })
-
-// SALES
-
-    const salesModal = document.getElementById('salesModal')
-
-    salesModal.addEventListener('mousemove', function () {
-        const sales_ex_rate = document.getElementById('purchase_ex_rate2')
-        const salesPrice = document.querySelectorAll('.salesPrice')
-        const salesGEL = document.querySelectorAll('.salesGel')
-        const totalGEL = document.getElementById('totalGEL2')
-        const totalCurrency = document.getElementById('totalCurrency2')
-
-        if (sales_ex_rate.value != 0) {
-
-            // Book Price
-            for (let i = 0; i < salesPrice.length; i++) {
-                salesGEL[i].value = (salesPrice[i].value * sales_ex_rate.value).toFixed(2)
-
-                totalGEL.innerHTML += salesGEL[i].value
-            }
-
-
-            // Invoice Subtotals
-            let subtotalCurrency = 0;
-            salesPrice.forEach(function (element) {
-                subtotalCurrency += parseFloat(element.value) || 0;
-            });
-
-            totalCurrency.innerHTML = Number(subtotalCurrency.toFixed(2));
-
-            let subtotalGel = 0;
-            salesGEL.forEach(function (element) {
-                subtotalGel += parseFloat(element.value) || 0;
-            });
-            totalGEL.innerHTML = Number(subtotalGel.toFixed(2));
-
-        }
-
-    })
-
-
-    salesModal.addEventListener('keyup', function () {
-        const sales_ex_rate = document.getElementById('purchase_ex_rate2')
-        const salesPrice = document.querySelectorAll('.salesPrice')
-        const salesGEL = document.querySelectorAll('.salesGel')
-        const totalGEL = document.getElementById('totalGEL2')
-        const totalCurrency = document.getElementById('totalCurrency2')
-
-        if (sales_ex_rate.value != 0) {
-
-            // Book Price
-            for (let i = 0; i < salesPrice.length; i++) {
-                salesGEL[i].value = (salesPrice[i].value * sales_ex_rate.value).toFixed(2)
-
-                totalGEL.innerHTML += salesGEL[i].value
-            }
-
-
-            // Invoice Subtotals
-            let subtotalCurrency = 0;
-            salesPrice.forEach(function (element) {
-                subtotalCurrency += parseFloat(element.value) || 0;
-            });
-
-            totalCurrency.innerHTML = Number(subtotalCurrency.toFixed(2));
-
-            let subtotalGel = 0;
-            salesGEL.forEach(function (element) {
-                subtotalGel += parseFloat(element.value) || 0;
-            });
-            totalGEL.innerHTML = Number(subtotalGel.toFixed(2));
-
-        }
-
-    })
-
+<script>
+    // const stockform=document.getElementById('stockform')
+    // const stockselect=document.getElementById('stockselect')
+    //
+    // stockselect.addEventListener('change', (e) => {
+    //     stockform.submit();
+    // })
+    //
+    // const stockdateform=document.getElementById('stockdateform')
+    // const stockdate=document.getElementById('date')
+    //
+    // stockdateform.addEventListener('change', (e) => {
+    //     stockdateform.submit();
+    // })
 
 </script>
 

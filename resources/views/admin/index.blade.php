@@ -2,9 +2,42 @@
 
 @section('main')
     {{--@php dd($books[0]) @endphp--}}
-    <div class="flex justify-center gap-4">
-{{--        Purchase Invoice--}}
-        <button type="button" class="hs-dropdown-toggle ti-btn ti-btn-primary-full"
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    <div class="flex justify-center gap-4 sm:flex-row sm:flex-col">
+
+        <form style=" margin-right: 50px" action="{{route('dateRange')}}" method="post" class="mt-2">
+            <div class="input-group flex flex-row justify-center gap-4 ">
+
+                @csrf
+                <select name="invoice" class=" form-control ti-form-select rounded-sm !py-2 !px-3">
+                    <option value="purchase">Only Purchase</option>
+                    <option value="sales">Only Sales</option>
+                </select>
+                <div class="input-group-text text-[#8c9097] dark:text-white/50"><i class="ri-calendar-line"></i></div>
+                <input name="range" type="text" class="form-control flatpickr-input active" id="daterange"
+                       placeholder="Date Range" readonly="readonly">
+                <button style="margin-bottom: 0!important;margin-left:5px!important;"
+                        class="w ti-btn ti-btn-outline-secondary  ti-btn-wave ">
+                    Filter
+                </button>
+                <a href="{{route('main')}}" style="margin-bottom: 0!important;margin-left:5px!important;"
+                   class="w ti-btn ti-btn-outline-secondary  ti-btn-wave ">
+                    All
+                </a>
+
+            </div>
+        </form>
+        {{--        Purchase Invoice--}}
+        <button type="button" class="hs-dropdown-toggle ti-btn ti-btn-outline-primary ti-btn-wave mt-2"
                 data-hs-overlay="#hs-extralarge-modal">
             Purchase Invoice
         </button>
@@ -27,11 +60,11 @@
                         </button>
                     </div>
                     <div class="ti-modal-body" id="purchaseModal">
-                        <form action="{{route('purchase.store')}}" method="post">
+                        <form action="{{route('purchase.store')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="grid grid-cols-12  gap-x-4 gap-y-2 items-center mt-2">
 
-                                <div class="sm:col-span-4 col-span-12">
+                                <div class="sm:col-span-3 col-span-12">
                                     <label class="hidden" for="purchDate">Date</label>
                                     <div class="input-group">
                                         <div class="input-group-text">Date</div>
@@ -39,7 +72,7 @@
                                         >
                                     </div>
                                 </div>
-                                <div class="sm:col-span-4 col-span-12">
+                                <div class="sm:col-span-3 col-span-12">
                                     <label class="hidden" for="inv_number">inv_number</label>
                                     <div class="input-group">
                                         <div class="input-group-text">Inv No</div>
@@ -47,7 +80,7 @@
                                                placeholder="Inv No">
                                     </div>
                                 </div>
-                                <div class="sm:col-span-4 col-span-12">
+                                <div class="sm:col-span-3 col-span-12">
                                     <label class="hidden" for="currency">currency</label>
                                     <div class="input-group">
                                         <div class="input-group-text">Currency</div>
@@ -65,7 +98,7 @@
                                     </div>
 
                                 </div>
-                                <div class="sm:col-span-6 col-span-12">
+                                <div class=" col-span-3">
                                     <label class="hidden" for="purchase_ex_rate">Ecchange Rate</label>
                                     <div class="input-group">
                                         <div class="input-group-text">Rate</div>
@@ -73,16 +106,7 @@
                                                placeholder="EX Rate">
                                     </div>
                                 </div>
-                                <div class="sm:col-span-6 col-span-12">
-                                    <label class="hidden" for="Stock">Username</label>
-                                    <div class="input-group">
-                                        <div class="input-group-text">Stock</div>
-                                        <select name="stock" class="form-control" id="Stock">
-                                            <option selected="">USA</option>
-                                            <option>GEO</option>
-                                        </select>
-                                    </div>
-                                </div>
+
                                 <div class="sm:col-span-12 col-span-12">
                                     <label class="hidden" for="supplier">supplier</label>
                                     <div class="input-group">
@@ -107,14 +131,19 @@
 
                             {{--Header--}}
                             <div class="grid grid-cols-12  gap-x-4 gap-y-2 items-center mt-7 mb-5">
-                                <div class="sm:col-span-2 col-span-12 text-center">
-                                    <div class="input-group-text m-auto text-center w-full">
+                                <div class="sm:col-span-1 col-span-12 text-center">
+                                    <div style="padding-left: 5px!important;" class="input-group-text m-auto text-center w-full">
                                         <p class="m-auto">Action</p>
                                     </div>
                                 </div>
-                                <div class="sm:col-span-6 col-span-12 text-center">
+                                <div class="sm:col-span-3 col-span-12 text-center">
                                     <div class="input-group-text m-auto text-center w-full">
                                         <p class="m-auto">Title</p>
+                                    </div>
+                                </div>
+                                <div class="sm:col-span-2 col-span-12 text-center">
+                                    <div class="input-group-text m-auto text-center w-full">
+                                        <p class="m-auto">Stock</p>
                                     </div>
                                 </div>
                                 <div class="sm:col-span-2 col-span-12 text-center">
@@ -127,6 +156,11 @@
                                         <p class="m-auto"> Price GEL</p>
                                     </div>
                                 </div>
+                                <div class="sm:col-span-2 col-span-12 text-center">
+                                    <div class="input-group-text m-auto text-center w-full">
+                                        <p class="m-auto"> Comment</p>
+                                    </div>
+                                </div>
 
                             </div>
                             {{--Add Book--}}
@@ -135,14 +169,23 @@
 
 
                                     <button type="button"
-                                            class="ti-btn ti-btn-light ti-btn-wave w-full removeButton sm:col-span-2 col-span-12 text-center">
-                                        <span style="color:red;" class=" material-symbols-outlined ">remove</span>
+                                            class="ti-btn ti-btn-light ti-btn-wave w-full removeButton sm:col-span-1 col-span-12 text-center">
+                                        <span style="color:red;font-size: 1.5rem" class="  ">-</span>
                                     </button>
 
-                                    <div class="sm:col-span-6 col-span-12">
+                                    <div class="sm:col-span-3 col-span-12">
                                         <label class="hidden" for="title">title</label>
                                         <input name="title[]" type="text" class="form-control"
                                                placeholder="Title">
+                                    </div>
+                                    <div class="sm:col-span-2 col-span-12">
+                                        <label class="hidden" for="Stock">Username</label>
+                                        <div class="input-group">
+                                            <select name="stock[]" class="form-control" id="Stock">
+                                                <option selected="">USA</option>
+                                                <option>GEO</option>
+                                            </select>
+                                        </div>
                                     </div>
                                     <div class="sm:col-span-2 col-span-12">
                                         <label class="hidden" for="Price">Price</label>
@@ -153,6 +196,12 @@
                                         <label class="hidden" for="GEL">GEL</label>
                                         <input name="price_gel[]" type="text" class="form-control purchaseGel"
                                                placeholder="0.00">
+                                    </div>
+
+                                    <div class="sm:col-span-2 col-span-12">
+                                        <label for="text-area" class="form-label">Comment</label>
+                                        <textarea name="comment[]" class="form-control col-span-12" id="text-area"
+                                                  rows="2"></textarea>
                                     </div>
                                 </div>
                             </template>
@@ -181,6 +230,17 @@
                             </div>
 
 
+
+
+                            <div class="mt-5">
+                                <label for="file-input" class="sr-only">Choose file</label>
+                                <input type="file" name="invoice" id="file-input" class="block w-full border border-gray-200 focus:shadow-sm dark:focus:shadow-white/10 rounded-sm text-sm focus:z-10 focus:outline-0 focus:border-gray-200 dark:focus:border-white/10 dark:border-white/10 dark:text-white/50
+                                       file:border-0
+                                      file:bg-light file:me-4
+                                      file:py-3 file:px-4
+                                      dark:file:bg-black/20 dark:file:text-white/50">
+                            </div>
+
                             <button type="submit" class="ti-btn ti-btn-primary-full mt-7">Submit</button>
 
                         </form>
@@ -189,9 +249,8 @@
             </div>
         </div>
 
-
-{{--        Sales Invoice--}}
-        <button type="button" class="hs-dropdown-toggle ti-btn ti-btn-primary-full"
+        {{--        Sales Invoice--}}
+        <button type="button" class="hs-dropdown-toggle ti-btn ti-btn-outline-primary ti-btn-wave mt-2"
                 data-hs-overlay="#hs-extralarge-modal2">
             Sales Invoice
         </button>
@@ -214,11 +273,11 @@
                         </button>
                     </div>
                     <div class="ti-modal-body" id="salesModal">
-                        <form action="{{route('purchase.store')}}" method="post">
+                        <form action="{{route('sales.store')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="grid grid-cols-12  gap-x-4 gap-y-2 items-center mt-2">
 
-                                <div class="sm:col-span-4 col-span-12">
+                                <div class="sm:col-span-3 col-span-12">
                                     <label class="hidden" for="salesDate">Date</label>
                                     <div class="input-group">
                                         <div class="input-group-text">Date</div>
@@ -226,7 +285,7 @@
                                         >
                                     </div>
                                 </div>
-                                <div class="sm:col-span-4 col-span-12">
+                                <div class="sm:col-span-3 col-span-12">
                                     <label class="hidden" for="inv_number2">inv_number</label>
                                     <div class="input-group">
                                         <div class="input-group-text">Inv No</div>
@@ -234,7 +293,7 @@
                                                placeholder="Inv No">
                                     </div>
                                 </div>
-                                <div class="sm:col-span-4 col-span-12">
+                                <div class="sm:col-span-3 col-span-12">
                                     <label class="hidden" for="currency2">currency</label>
                                     <div class="input-group">
                                         <div class="input-group-text">Currency</div>
@@ -252,7 +311,7 @@
                                     </div>
 
                                 </div>
-                                <div class="sm:col-span-6 col-span-12">
+                                <div class="sm:col-span-3 col-span-12">
                                     <label class="hidden" for="purchase_ex_rate2">Ecchange Rate</label>
                                     <div class="input-group">
                                         <div class="input-group-text">Rate</div>
@@ -260,16 +319,7 @@
                                                placeholder="EX Rate">
                                     </div>
                                 </div>
-                                <div class="sm:col-span-6 col-span-12">
-                                    <label class="hidden" for="Stock2">Username</label>
-                                    <div class="input-group">
-                                        <div class="input-group-text">Stock</div>
-                                        <select name="stock" class="form-control" id="Stock2">
-                                            <option selected="">USA</option>
-                                            <option>GEO</option>
-                                        </select>
-                                    </div>
-                                </div>
+
                                 <div class="sm:col-span-12 col-span-12">
                                     <label class="hidden" for="customer">Customer</label>
                                     <div class="input-group">
@@ -287,6 +337,7 @@
                                     </div>
 
                                 </div>
+
 
                             </div>
                             <br><br>
@@ -315,6 +366,7 @@
                                     </div>
                                 </div>
 
+
                             </div>
                             {{--Add Book--}}
                             <template id="myTemplate2">
@@ -328,15 +380,15 @@
 
                                     <div class="sm:col-span-6 col-span-12">
                                         <label class="hidden" for="title">title</label>
-                                        <select name="title[]" class="ti-form-select form-control rounded-sm !p-0 tomSelect"
-                                                id="" autocomplete="off">
+                                        <select name="title[]"
+                                                class="ti-form-select form-control rounded-sm !p-0 tomSelect"
+                                                autocomplete="off">
 
                                             <option value="">Select a book...</option>
                                             @foreach($remains as $index => $book)
                                                 <option value="{{$book->id}}">{{$book->title}}</option>
                                             @endforeach
                                         </select>
-
                                     </div>
                                     <div class="sm:col-span-2 col-span-12">
                                         <label class="hidden" for="Price">Price</label>
@@ -375,6 +427,15 @@
                             </div>
 
 
+                            <div class="mt-5">
+                                <label for="file-input2" class="sr-only">Choose file</label>
+                                <input type="file" name="invoice" id="file-input2" class="block w-full border border-gray-200 focus:shadow-sm dark:focus:shadow-white/10 rounded-sm text-sm focus:z-10 focus:outline-0 focus:border-gray-200 dark:focus:border-white/10 dark:border-white/10 dark:text-white/50
+                                       file:border-0
+                                      file:bg-light file:me-4
+                                      file:py-3 file:px-4
+                                      dark:file:bg-black/20 dark:file:text-white/50">
+                            </div>
+
                             <button type="submit" class="ti-btn ti-btn-primary-full mt-7">Submit</button>
 
                         </form>
@@ -382,35 +443,49 @@
                 </div>
             </div>
         </div>
-    </div>
+        <button id="htmxbutton" hx-get="{{route('table')}}"  hx-target="#htmx" type="button" class="ti-btn ti-btn-light ti-btn-wave">Light</button>
 
+    </div>
+<div id="htmx">
     <table id="example" class="display nowrap" style="width:100%">
         <thead>
         <tr>
-            <th>Stock <br><input type="text" id="col0" class="form-control" ></th>
-            <th>Purchase Date <br> <input type="text" id="col1" class="form-control" ></th>
-            <th>Supplier <br> <input type="text" id="col2" class="form-control" ></th>
-            <th>Purch. Inv NO <br> <input type="text" id="col3" class="form-control" ></th>
-            <th>Book <br> <input type="text" id="col4" class="form-control" ></th>
+
+            <th>Reviewed</th>
+            <th>Stock <br><input type="text" id="col0" class="form-control"></th>
+            <th>Purchase Date <br> <input type="text" id="col1" class="form-control"></th>
+            <th>Supplier <br> <input type="text" id="col2" class="form-control"></th>
+            <th>Purch. Inv NO <br> <input type="text" id="col3" class="form-control"></th>
+            <th>Book <br> <input type="text" id="col4" class="form-control"></th>
             <th>Purch. Currency</th>
             <th>Purch. Amount</th>
             <th>Purch. Rate</th>
             <th>Purch. GEL</th>
             <th>Sales Date <br> <input type="text" id="col9" class="form-control"></th>
-            <th>Customer <br> <input type="text" id="col10" class="form-control" ></th>
-            <th>Sales Inv No <br> <input type="text" id="col11" class="form-control" ></th>
+            <th>Customer <br> <input type="text" id="col10" class="form-control"></th>
+            <th>Sales Inv No <br> <input type="text" id="col11" class="form-control"></th>
             <th>Sales Currency</th>
             <th>Sales Rate</th>
             <th>Sales Amount</th>
             <th>Sales GEL</th>
+            <th>Margin</th>
+            <th>Profit</th>
+            <th>Comment</th>
             <th>Actions</th>
 
         </tr>
         </thead>
         <tbody>
         @foreach($books as $index=> $book)
-{{--                        @php dd($book) @endphp--}}
             <tr>
+
+                <td>
+                    @if($book->reviewed===1)
+                    {{$book->reviewed}}
+                    @else
+                        @endif
+                </td>
+
                 <td>{{$book->stock}}</td>
                 <td>{{$book->purchaseinvoices->date}}</td>
                 <td>{{$book->purchaseinvoices->suppliers->name}}</td>
@@ -421,7 +496,7 @@
                 <td>{{$book->purchase_rate}}</td>
                 <td>{{$book->purchase_gel}}</td>
                 <td>@if($book->salesInvoices && $book->salesInvoices->invoice_number)
-                    {{$book->salesInvoices->date}}
+                        {{$book->salesInvoices->date}}
                     @else
                         Remains
                     @endif
@@ -460,31 +535,144 @@
                 <td>
                     @if($book->salesInvoices && $book->salesInvoices->invoice_number)
                         {{$book->sales_gel}}
-
                     @endif
                 </td>
-                <td><div class="hs-dropdown ti-dropdown">
-                        <a aria-label="anchor" href="javascript:void(0);" class="flex items-center justify-center w-[1.75rem] h-[1.75rem]  !text-[0.8rem] !py-1 !px-2 rounded-sm bg-light border-light shadow-none !font-medium" aria-expanded="false">
+                <td>
+                    @if($book->sales_gel)
+                        {{  number_format(($book->sales_gel - $book->purchase_gel) / $book->purchase_gel * 100, 2) }}%
+                    @endif
+                </td>
+                <td>
+                    @if($book->sales_gel)
+                        {{  number_format($book->sales_gel - $book->purchase_gel, 2) }}
+                    @endif
+                </td>
+                <td>
+                    {{$book->comment}}
+                </td>
+                <td>
+                    <div class="hs-dropdown ti-dropdown">
+                        <a aria-label="anchor" href="javascript:void(0);"
+                           class="flex items-center justify-center w-[1.75rem] h-[1.75rem]  !text-[0.8rem] !py-1 !px-2 rounded-sm bg-light border-light shadow-none !font-medium"
+                           aria-expanded="false">
                             <i class="fe fe-more-vertical text-[0.8rem]"></i>
                         </a>
-                        <ul class="hs-dropdown-menu ti-dropdown-menu hidden" style="">
+                        <ul style="position: absolute" class="hs-dropdown-menu ti-dropdown-menu hidden">
                             <li>
-                                <a class="ti-dropdown-item !py-2 !px-[0.9375rem] !text-[0.8125rem] !font-medium block" href="javascript:void(0);">Week</a>
+                                <a target="_blank"
+                                   class="ti-dropdown-item !py-2 !px-[0.9375rem] !text-[0.8125rem] !font-medium block"
+                                   href="{{route('purchase.edit', $book->purchaseinvoices->id)}}">Edit Purchase</a>
                             </li>
                             <li>
-                                <a class="ti-dropdown-item !py-2 !px-[0.9375rem] !text-[0.8125rem] !font-medium block" href="javascript:void(0);">Month</a>
+                                <a target="_blank"
+                                   class="ti-dropdown-item !py-2 !px-[0.9375rem] !text-[0.8125rem] !font-medium block"
+                                   @if($book->salesInvoices!== null)  href="{{route('sales.edit', $book->salesInvoices->id )}} @endif">
+                                    Edit Sales </a>
                             </li>
                             <li>
-                                <a class="ti-dropdown-item !py-2 !px-[0.9375rem] !text-[0.8125rem] !font-medium block" href="javascript:void(0);">Year</a>
+                                <a href="javascript:void(0);"
+                                   class="ti-dropdown-item !py-2 !px-[0.9375rem] !text-[0.8125rem] !font-medium block"
+                                   data-hs-overlay="#todo-compose{{$index}}">Delete Purchase
+                                </a>
+
                             </li>
+                            @if($book->purchaseinvoices->media)
+                                <li>
+                                    @foreach($book->purchaseinvoices->media as $img)
+                                        @if($loop->first)
+                                            <a href="{{$img->getUrl()}}"
+                                               class="glightbox2 ti-dropdown-item !py-2 !px-[0.9375rem] !text-[0.8125rem] !font-medium block"
+                                            >Purhcase Invoice
+                                                <img style="display: none" src="{{$img->getUrl()}}" width="100">
+                                            </a>
+                                        @endif
+                                    @endforeach
+                                </li>
+                            @endif
+                            <li>
+                                <a href="javascript:void(0);"
+                                   class="glightbox ti-dropdown-item !py-2 !px-[0.9375rem] !text-[0.8125rem] !font-medium block"
+                                >Sales Invoice
+                                </a>
+
+                            </li>
+                            @if($book->salesInvoices!== null)
+                                <li>
+                                    <a href="javascript:void(0);"
+                                       class="ti-dropdown-item !py-2 !px-[0.9375rem] !text-[0.8125rem] !font-medium block"
+                                       data-hs-overlay="#salesdelete{{$index}}">Delete Sales
+                                    </a>
+
+                                </li>
+                            @endif
                         </ul>
-                    </div></td>
+                        <div id="todo-compose{{$index}}" class="hs-overlay hidden ti-modal">
+                            <div class="hs-overlay-open:mt-7 ti-modal-box mt-0 ease-out">
+                                <div class="ti-modal-content">
+                                    <div class="ti-modal-header">
+                                        {{--                                        <h6 class="modal-title text-[1rem] font-semibold text-center" >Delete Purchase</h6>--}}
+                                        {{--                                        <button type="button" class="hs-dropdown-toggle !text-[1rem] !font-semibold !text-defaulttextcolor" data-hs-overlay="#todo-compose{{$index}}">--}}
+                                        {{--                                            <span class="sr-only">Close</span>--}}
+                                        {{--                                            <i class="ri-close-line"></i>--}}
+                                        {{--                                        </button>--}}
+                                    </div>
+                                    <div class="ti-modal-body px-4">
+                                        Delete Purchase invoice {{$book->purchaseinvoices->invoice_number}} and all
+                                        books in it?
+                                    </div>
+                                    <div class="ti-modal-footer">
+                                        <button type="button"
+                                                class="hs-dropdown-toggle ti-btn  ti-btn-secondary-full align-middle"
+                                                data-hs-overlay="#todo-compose{{$index}}">
+                                            Close
+                                        </button>
+                                        <form action="{{route('purchase.delete')}}">
+                                            <input type="hidden" name="id" value="{{$book->purchaseinvoices->id}}">
+                                            @csrf
+                                            <button class="ti-btn bg-primary text-white !font-medium">Delete</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @if($book->salesInvoices!== null)
+                            <div id="salesdelete{{$index}}" class="hs-overlay hidden ti-modal">
+                                <div class="hs-overlay-open:mt-7 ti-modal-box mt-0 ease-out">
+                                    <div class="ti-modal-content">
+                                        <div class="ti-modal-header">
+
+                                        </div>
+                                        <div class="ti-modal-body px-4">
+                                            Delete Sales invoice {{$book->salesInvoices->invoice_number}} and all books
+                                            in it?
+                                        </div>
+                                        <div class="ti-modal-footer">
+                                            <button type="button"
+                                                    class="hs-dropdown-toggle ti-btn  ti-btn-secondary-full align-middle"
+                                                    data-hs-overlay="#salesdelete{{$index}}">
+                                                Close
+                                            </button>
+                                            <form action="{{route('sales.delete')}}">
+                                                <input type="hidden" name="id" value="{{$book->salesInvoices->id}}">
+                                                @csrf
+                                                <button class="ti-btn bg-primary text-white !font-medium">Delete
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                    </div>
+                </td>
             </tr>
 
         @endforeach
         </tbody>
         <tfoot>
         <tr>
+
+            <th>Reviewed</th>
             <th>Stock</th>
             <th>Purch. InvDate</th>
             <th>Supplier</th>
@@ -501,10 +689,13 @@
             <th>Sales Rate</th>
             <th style="color: green;font-size: 1.2rem">Sales Amount</th>
             <th style="color: green;font-size: 1.2rem">Sales GEL</th>
+            <th>Margin</th>
+            <th>Profit</th>
+            <th>Comment</th>
             <th>Actions</th>
 
         </tr>
         </tfoot>
     </table>
-
+</div>
 @endsection

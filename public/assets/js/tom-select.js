@@ -16,6 +16,7 @@
   //     direction: "asc"
   //   }
   // });
+  console.log('supplier')
 
   /* Basic select */
   new TomSelect("#supplier", {
@@ -26,13 +27,6 @@
     }
   });
 
-  new TomSelect("#customer", {
-    create: true,
-    sortField: {
-      field: "text",
-      direction: "asc"
-    }
-  });
 
 
   // /* diasble select */
@@ -42,4 +36,5 @@
   // new TomSelect("#select-state", {
   //   maxItems: 8
   // });
-})();
+})
+()

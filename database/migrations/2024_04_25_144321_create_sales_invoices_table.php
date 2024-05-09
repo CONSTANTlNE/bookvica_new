@@ -16,7 +16,10 @@ return new class extends Migration
             $table->date('date')->nullable();
             $table->string('invoice_number')->index()->nullable();
             $table->foreignId('customer_id')->constrained('customers');
+            $table->boolean('checked')->default(0);
+            $table->softDeletes();
             $table->timestamps();
+
         });
     }
 
