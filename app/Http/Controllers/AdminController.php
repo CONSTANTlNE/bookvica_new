@@ -20,16 +20,23 @@ class AdminController extends Controller
     public function index()
     {
 
+        $startTime = microtime(true);
         $books     = Book::with('purchaseinvoices.suppliers', 'salesInvoices.customers', 'purchaseinvoices.media',
             'salesInvoices.media')->get();
         $suppliers = Supplier::with('invoices')->get();
         $customers = Customer::all();
         $remains   = Book::where('sales_amount', null)->get();
 
+        $endTime = microtime(true);
+        $executionTime = ($endTime - $startTime);
+
+        Log::channel('time')->info('Date Range Execution Time: '.$executionTime);
 //        dd($remains);
 
 
         return view('admin.index', compact('books', 'suppliers', 'customers', 'remains'));
+
+
     }
 
 

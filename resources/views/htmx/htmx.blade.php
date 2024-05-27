@@ -1,3 +1,4 @@
+
 <table id="example" class="display nowrap" style="width:100%">
     <thead>
     <tr>
@@ -249,20 +250,22 @@
     </tfoot>
 </table>
 
+<script >
 
-<script>
+    let table{{$counter}};
 
-
-
-    let table = new DataTable('#example', {
+    table{{$counter}} = new DataTable('#example', {
         //Generall SETTINGS
-        // lengthMenu: [10, 25, 50, {label: 'All', value: -1}],
-        lengthMenu: [ {label: 'All', value: -1}],
+        lengthMenu: [10, 100, 150, {label: 'All', value: -1}],
+
+        // lengthMenu: [ {label: 'All', value: -1}],
         language: {
             url: 'https://cdn.datatables.net/plug-ins/2.0.5/i18n/ka.json',
         },
+
         scrollX: true,
         scrollY: 700,
+
 
         layout: {
 
@@ -384,8 +387,10 @@
     });
 
 
+
+
     $('#col0').on('keyup', function () {
-        table
+        table{{$counter}}
             .columns(1)
             .search(this.value)
             .draw();
@@ -395,7 +400,7 @@
     $('#col1').on('keyup', function () {
         console.log( table
             .columns(2).search(this.value))
-        table
+        table{{$counter}}
             .columns(2)
             .search(this.value)
             .draw();
@@ -403,41 +408,46 @@
 
 
     $('#col2').on('keyup', function () {
-        table
+        table{{$counter}}
             .columns(3)
             .search(this.value)
             .draw();
     });
 
     $('#col3').on('keyup', function () {
-        table
+        table{{$counter}}
             .columns(4)
             .search(this.value)
             .draw();
     });
     $('#col4').on('keyup', function () {
-        table
+        table{{$counter}}
             .columns(5)
             .search(this.value)
             .draw();
     });
 
 
+
+
     // Sales
+
+
     $('#col9').on('keyup', function () {
-        table
+        table{{$counter}}
             .columns(10)
             .search(this.value)
             .draw();
     });
     $('#col10').on('keyup', function () {
-        table
+        table{{$counter}}
             .columns(11)
             .search(this.value)
             .draw();
     });
+
     $('#col11').on('keyup', function () {
-        table
+        table{{$counter}}
             .columns(12)
             .search(this.value)
             .draw();

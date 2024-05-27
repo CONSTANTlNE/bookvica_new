@@ -19,4 +19,16 @@
 
 
 
+    <div hx-target="this" hx-swap="outerHTML">
+        <div><label>First Name</label>: Joe</div>
+        <div><label>Last Name</label>: Blow</div>
+        <div><label>Email</label>: joe@blow.com</div>
+        <button hx-get="{{route('clicktoedit')}}" class="btn btn-primary">
+            Click To Edit
+        </button>
+    </div>
+
+
+
+
 @endsection

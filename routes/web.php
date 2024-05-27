@@ -79,11 +79,16 @@ Route::get('/sendsms', [AdminController::class,'sendsms'])->name('sendsms');
 
 
 
-//HTMX
+// HTMX
 
 Route::get('/htmx', [HtmxController::class,'index'])->name('htmx');
 Route::get('/htmx/hello', [HtmxController::class,'hello'])->name('hello');
-Route::get('/htmx/table', [HtmxController::class,'table'])->name('table');
+Route::get('/htmx/table', [HtmxController::class,'tableget'])->name('table');
+Route::post('/htmx/table/daterange', [HtmxController::class,'range'])->name('dateRangehtmx');
+Route::get('clicktoedit', [HtmxController::class,'clicktoedit'])->name('clicktoedit');
+Route::get('/counter', [HtmxController::class,'sessionCounter'])->name('counter');
+Route::get('/statshtmx', [HtmxController::class,'statshtmx'])->name('statshtmx');
+Route::get('/mainhtmx', [HtmxController::class,'indexhtmx'])->name('indexhtmx');
 
 
 

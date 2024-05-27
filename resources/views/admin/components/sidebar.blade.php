@@ -31,18 +31,18 @@
                 <li class="slide__category"><span class="category-name">Pages</span></li>
                 <!-- End::slide__category -->
 
-                <li class="slide"><a href="{{route('main')}}" class="side-menu__item">
+                <li class="slide">
+                    <a  href="{{route('main')}}" class="side-menu__item">
                         <span class="material-symbols-outlined">airplay</span>
                         <span style="margin-left: 5px;" class="side-menu__label">Main</span>
-                    </a></li>
+                    </a>
+                </li>
 
                 <li class="slide">
-
                     <a href="{{route('changes')}}" class="side-menu__item">
                         <span class="material-symbols-outlined">change_circle</span>
                         <span style="margin-left: 5px; " class="side-menu__label">Changes</span>
                     </a>
-
                 </li>
 
                 <li class="slide"><a href="{{route('suppliers')}}" class="side-menu__item">
@@ -65,7 +65,8 @@
                     </a>
                 </li>
 
-                <li class="slide"><a href="{{route('deleted')}}" class="side-menu__item" target="_blank">
+                <li class="slide">
+                    <a href="{{route('deleted')}}" class="side-menu__item" target="_blank">
                         <span class="material-symbols-outlined">restore_page</span>
                         <span style="margin-left: 5px;" class="side-menu__label">Deleted</span>
                     </a>
@@ -81,7 +82,7 @@
                         <i class="fe fe-chevron-right side-menu__angle"></i>
                     </a>
                     <ul class="slide-menu child1">
-                        <li class="slide"><a href="{{route('stats')}}" class="side-menu__item" target="_blank">
+                        <li hx-get="{{route('statshtmx')}}" hx-target="#main-content" class="slide"><a  class="side-menu__item" >
                                 <span class="side-menu__label"> Purchase / Sales</span>
                             </a>
                         </li>

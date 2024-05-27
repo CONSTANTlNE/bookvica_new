@@ -3,9 +3,9 @@ import './bootstrap';
 
 import '../../public/assets/js/main.js';
 import '../../public/assets/libs/preline/preline.js';
-import '../../public/assets/libs/@popperjs/core/umd/popper.min.js';
+// import '../../public/assets/libs/@popperjs/core/umd/popper.min.js';
 import '../../public/assets/libs/@simonwep/pickr/pickr.es5.min.js';
-import '../../public/assets/js/defaultmenu.js';
+// import '../../public/assets/js/defaultmenu.js';
 import '../../public/assets/js/sticky.js';
 import '../../public/assets/js/switch.js';
 import '../../public/assets/libs/simplebar/simplebar.min.js';
@@ -24,5 +24,20 @@ import '../../public/assets/js/nbgSales.js';
 import '../../public/assets/js/purchaseSum.js';
 import '../../public/assets/js/salesSum.js';
 
+
+
+
 import '../../public/assets/js/tom-select.js';
 import '../../public/assets/js/customerTomSelect.js';
+
+
+import '../../public/assets/js/datatables/datatableJquery.js';
+import '../../public/assets/js/datatables/datatables.js';
+import '../../public/assets/js/datatables/datatables.buttons.js';
+import '../../public/assets/js/datatables/jszip.min.js';
+import '../../public/assets/js/datatables/buttons.html5.min.js';
+import '../../public/assets/js/datatables/buttons.print.min.js';
+import '../../public/assets/js/datatables/buttons.colVis.min.js';
+import '../../public/assets/js/datatables/dataTables.colReorder.js';
+import '../../public/assets/js/datatables/ggg.js';
+

@@ -1,5 +1,8 @@
 "use strict";
 
+
+
+
 const ANIMATION_DURATION = 300;
 
 const sidebar = document.getElementById("sidebar");
@@ -27,19 +30,27 @@ class PopperObject {
   init(reference, popperTarget) {
     this.reference = reference;
     this.popperTarget = popperTarget;
-    this.instance = Popper.createPopper(this.reference, this.popperTarget, {
-      placement: "bottom",
-      strategy: "relative",
-      resize: true,
-      modifiers: [
-        {
-          name: "computeStyles",
-          options: {
-            adaptive: false,
+
+
+
+
+      this.instance = Popper.createPopper(this.reference, this.popperTarget, {
+        placement: "bottom",
+        strategy: "relative",
+        resize: true,
+        modifiers: [
+          {
+            name: "computeStyles",
+            options: {
+              adaptive: false,
+            },
           },
-        },
-      ],
-    });
+        ],
+      });
+
+
+
+
 
     document.addEventListener(
       "click",

@@ -57,7 +57,11 @@ return [
             'path' => storage_path('logs/crud.log'),
             'level' => 'debug',
         ],
-
+        'time' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/time.log'),
+            'level' => 'debug',
+        ],
         'stack' => [
             'driver' => 'stack',
             'channels' => explode(',', env('LOG_STACK', 'single')),

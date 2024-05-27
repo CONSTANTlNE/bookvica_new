@@ -13,38 +13,41 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{asset('assets/images/logo.png')}}">
 
+
     <!-- Main JS -->
-{{--    <script src="{{asset('assets/js/main.js')}}"></script>--}}
+    {{--    <script src="{{asset('assets/js/main.js')}}"></script>--}}
 
     <!-- Style Css -->
-{{--    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">--}}
+    {{--    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">--}}
 
     <!-- Simplebar Css -->
-{{--    <link rel="stylesheet" href="{{asset('assets/libs/simplebar/simplebar.min.css')}}">--}}
+    {{--    <link rel="stylesheet" href="{{asset('assets/libs/simplebar/simplebar.min.css')}}">--}}
 
     <!-- Color Picker Css -->
-{{--    <link rel="stylesheet" href="{{asset('assets/libs/@simonwep/pickr/themes/nano.min.css')}}">--}}
+    {{--    <link rel="stylesheet" href="{{asset('assets/libs/@simonwep/pickr/themes/nano.min.css')}}">--}}
 
-{{--    <link rel="stylesheet" href="{{asset('assets/libs/prismjs/themes/prism-coy.min.css')}}">--}}
+    {{--    <link rel="stylesheet" href="{{asset('assets/libs/prismjs/themes/prism-coy.min.css')}}">--}}
 
-{{--    <link rel="stylesheet" href="{{asset('assets/libs/flatpickr/flatpickr.min.css')}}">--}}
+    {{--    <link rel="stylesheet" href="{{asset('assets/libs/flatpickr/flatpickr.min.css')}}">--}}
     {{--  DATATABLES CSS --}}
 
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.5/css/dataTables.dataTables.css"/>
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.0.2/css/buttons.dataTables.css"/>
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.2/css/responsive.dataTables.css">
 
-    <script src="https://unpkg.com/htmx.org@1.9.12" integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2" crossorigin="anonymous" ></script>
+    <script src="https://unpkg.com/htmx.org@1.9.12"
+            integrity="sha384-ujb1lZYygJmzgSwoxRggbCHcjc0rB2XoQrxeTUQyRjrOnlCoYta87iKBWq3EsdM2"
+            crossorigin="anonymous"></script>
 
-{{--    <link  rel="stylesheet" href="{{asset('assets/css/glightbox.css')}}">--}}
+    {{--    <link  rel="stylesheet" href="{{asset('assets/css/glightbox.css')}}">--}}
     <!-- Tom Select Css -->
-{{--    <link rel="stylesheet" href="{{asset('assets/libs/tom-select/css/tom-select.default.min.css')}}">--}}
+    {{--    <link rel="stylesheet" href="{{asset('assets/libs/tom-select/css/tom-select.default.min.css')}}">--}}
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    {{--    <link rel="stylesheet"--}}
+    {{--          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>--}}
     <style>
 
         div.dt-container {
@@ -55,12 +58,12 @@
             cursor: pointer;
         }
 
-      th{
-            text-align: center!important;
+        th {
+            text-align: center !important;
         }
 
-        td{
-            text-align: center!important;
+        td {
+            text-align: center !important;
         }
 
         #col0 {
@@ -69,26 +72,27 @@
             /*padding-left: 0;*/
         }
 
-        .logout:hover{
-            cursor:pointer;
-            color: purple!important;
+        .logout:hover {
+            cursor: pointer;
+            color: purple !important;
         }
 
-.flatpickr-month{
-    height: 50px!important;
-}
-        .numInputWrapper{
-            height: 50px!important;
+        .flatpickr-month {
+            height: 50px !important;
         }
 
-        .arrowUp{
-            color: red!important;
+        .numInputWrapper {
+            height: 50px !important;
         }
 
+        .arrowUp {
+            color: red !important;
+        }
 
 
     </style>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
 </head>
 
 <body>
@@ -571,9 +575,9 @@
 
 
     <!-- Start::content  -->
-    <div class="content  main-index">
+    <div  class="content  main-index">
         <!-- Start::main-content -->
-        <div class="main-content ">
+        <div id="main-content" class="main-content">
 
             @yield('upload')
             @yield('main')
@@ -612,13 +616,13 @@
 {{--<script src="{{asset('assets/libs/preline/preline.js')}}"></script>--}}
 
 <!-- popperjs -->
-{{--<script src="{{asset('assets/libs/@popperjs/core/umd/popper.min.js')}}"></script>--}}
+<script src="{{asset('assets/libs/@popperjs/core/umd/popper.min.js')}}"></script>
 
 <!-- Color Picker JS -->
 {{--<script src="{{asset('assets/libs/@simonwep/pickr/pickr.es5.min.js')}}"></script>--}}
 
 <!-- sidebar JS -->
-{{--<script src="{{asset('assets/js/defaultmenu.js')}}"></script>--}}
+<script src="{{asset('assets/js/defaultmenu.js')}}"></script>
 
 <!-- sticky JS -->
 {{--<script src="{{asset('assets/js/sticky.js')}}"></script>--}}
@@ -657,577 +661,554 @@
 {{--<script src="{{asset('assets/js/date-time_pickers.js')}}"></script>--}}
 
 {{--    Datatables--}}
+
 {{--<script src="https://code.jquery.com/jquery-3.7.1.js"></script>--}}
-<script src="{{asset('assets/js/datatableJquery.js')}}"></script>
-<script src="https://cdn.datatables.net/2.0.5/js/dataTables.js"></script>
-<script src="https://cdn.datatables.net/buttons/3.0.2/js/dataTables.buttons.js"></script>
-<script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.dataTables.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.html5.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.print.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.colVis.min.js"></script>
-<script src="https://cdn.datatables.net/colreorder/2.0.1/js/dataTables.colReorder.js"></script>
-<script src="https://cdn.datatables.net/colreorder/2.0.1/js/colReorder.dataTables.js"></script>
+{{--<script src="{{asset('assets/js/datatables/datatableJquery.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/datatables/datatables.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/datatables/datatables.buttons.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/datatables/jszip.min.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/datatables/buttons.html5.min.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/datatables/buttons.print.min.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/datatables/buttons.colVis.min.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/datatables/dataTables.colReorder.js')}}"></script>--}}
 
 
 
 {{--//Deleted--}}
 
 @if(request()->routeIs('deleted'))
-<script>
+    <script>
 
-    let deletedTable = new DataTable('#deleted', {
-        //Generall SETTINGS
-        lengthMenu: [10, 25, 50, {label: 'All', value: -1}],
-        language: {
-            url: 'https://cdn.datatables.net/plug-ins/2.0.5/i18n/ka.json',
-        },
-        scrollX: true,
-        scrollY: 700,
+        let deletedTable = new DataTable('#deleted', {
+            //Generall SETTINGS
+            lengthMenu: [10, 25, 50, {label: 'All', value: -1}],
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/2.0.5/i18n/ka.json',
+            },
+            scrollX: true,
+            scrollY: 700,
 
-        layout: {
+            layout: {
 
-            topStart: {
-                buttons: ['pageLength', 'colvis', 'excel'],
-                // pageLength: {
-                //   menu: [ 10, 25, 50, 100,5000 ]
-                // }
+                topStart: {
+                    buttons: ['pageLength', 'colvis', 'excel'],
+                    // pageLength: {
+                    //   menu: [ 10, 25, 50, 100,5000 ]
+                    // }
+                },
+
+
+                topEnd: {
+                    search: '',
+                }
+
+
             },
 
 
-            topEnd: {
-                search: '',
-            }
+            // TOTALS
+            footerCallback: function (row, data, start, end, display) {
+                let api = this.api();
+
+                let intVal = function (i) {
+                    return typeof i === 'string'
+                        ? i.replace(/[\$,]/g, '') * 1
+                        : typeof i === 'number'
+                            ? i
+                            : 0;
+                };
+
+                // Purchase currency Totals
+                total = api
+                    .column(8)
+                    .data()
+                    .reduce((a, b) => intVal(a) + intVal(b), 0);
+
+                w
+
+                pageTotal = api
+                    .column(8, {page: 'current'})
+                    .data()
+                    .reduce((a, b) => intVal(a) + intVal(b), 0);
+
+                const formatPageTotal = new Intl.NumberFormat('en-US', {
+                    maximumFractionDigits: 2,
+                }).format(pageTotal);
+
+                const formattotal = new Intl.NumberFormat('en-US', {
+                    maximumFractionDigits: 2,
+                }).format(total);
+                // Update footer
+
+                api.column(8).footer().innerHTML =
+                    // '$' + pageTotal + ' ( $' + total + ' total)';
+                    // formatPageTotal +' '+ '('+ formattotal +' ' + ' total)';
+                    formatPageTotal;
 
 
-        },
+                // Purchase GEL Totals
+
+                // Total over this page
+                pageTotal2 = api
+                    .column(8, {page: 'current'})
+                    .data()
+                    .reduce((a, b) => intVal(a) + intVal(b), 0);
+
+                const formatPageTotal2 = new Intl.NumberFormat('en-US', {
+                    maximumFractionDigits: 2,
+                }).format(pageTotal2);
 
 
-
-        // TOTALS
-        footerCallback: function (row, data, start, end, display) {
-            let api = this.api();
-
-            let intVal = function (i) {
-                return typeof i === 'string'
-                    ? i.replace(/[\$,]/g, '') * 1
-                    : typeof i === 'number'
-                        ? i
-                        : 0;
-            };
-
-            // Purchase currency Totals
-            total = api
-                .column(8)
-                .data()
-                .reduce((a, b) => intVal(a) + intVal(b), 0);
-
-w
-
-            pageTotal = api
-                .column(8, {page: 'current'})
-                .data()
-                .reduce((a, b) => intVal(a) + intVal(b), 0);
-
-            const formatPageTotal = new Intl.NumberFormat('en-US', {
-                maximumFractionDigits: 2,
-            }).format(pageTotal);
-
-            const formattotal = new Intl.NumberFormat('en-US', {
-                maximumFractionDigits: 2,
-            }).format(total);
-            // Update footer
-
-            api.column(8).footer().innerHTML =
-                // '$' + pageTotal + ' ( $' + total + ' total)';
-                // formatPageTotal +' '+ '('+ formattotal +' ' + ' total)';
-                formatPageTotal;
+                api.column(8).footer().innerHTML =
+                    // '$' + pageTotal + ' ( $' + total + ' total)';
+                    // formatPageTotal +' '+ '('+ formattotal +' ' + ' total)';
+                    formatPageTotal2;
 
 
+                // Sales currency Totals
+
+                // Total over this page
+                pageTotal3 = api
+                    .column(14, {page: 'current'})
+                    .data()
+                    .reduce((a, b) => intVal(a) + intVal(b), 0);
+
+                const formatPageTotal3 = new Intl.NumberFormat('en-US', {
+                    maximumFractionDigits: 2,
+                }).format(pageTotal3);
 
 
-            // Purchase GEL Totals
-
-            // Total over this page
-            pageTotal2 = api
-                .column(8, {page: 'current'})
-                .data()
-                .reduce((a, b) => intVal(a) + intVal(b), 0);
-
-            const formatPageTotal2 = new Intl.NumberFormat('en-US', {
-                maximumFractionDigits: 2,
-            }).format(pageTotal2);
+                api.column(14).footer().innerHTML =
+                    // '$' + pageTotal + ' ( $' + total + ' total)';
+                    // formatPageTotal +' '+ '('+ formattotal +' ' + ' total)';
+                    formatPageTotal3;
 
 
-            api.column(8).footer().innerHTML =
-                // '$' + pageTotal + ' ( $' + total + ' total)';
-                // formatPageTotal +' '+ '('+ formattotal +' ' + ' total)';
-                formatPageTotal2;
+                // Sales GEL Totals
+
+                pageTotal4 = api
+                    .column(15, {page: 'current'})
+                    .data()
+                    .reduce((a, b) => intVal(a) + intVal(b), 0);
+
+                const formatPageTotal4 = new Intl.NumberFormat('en-US', {
+                    maximumFractionDigits: 2,
+                }).format(pageTotal4);
 
 
-
-            // Sales currency Totals
-
-            // Total over this page
-            pageTotal3 = api
-                .column(14, {page: 'current'})
-                .data()
-                .reduce((a, b) => intVal(a) + intVal(b), 0);
-
-            const formatPageTotal3 = new Intl.NumberFormat('en-US', {
-                maximumFractionDigits: 2,
-            }).format(pageTotal3);
+                api.column(15).footer().innerHTML =
+                    // '$' + pageTotal + ' ( $' + total + ' total)';
+                    // formatPageTotal +' '+ '('+ formattotal +' ' + ' total)';
+                    formatPageTotal4;
 
 
-            api.column(14).footer().innerHTML =
-                // '$' + pageTotal + ' ( $' + total + ' total)';
-                // formatPageTotal +' '+ '('+ formattotal +' ' + ' total)';
-                formatPageTotal3;
+            },
 
 
+        });
 
-            // Sales GEL Totals
-
-            pageTotal4 = api
-                .column(15, {page: 'current'})
-                .data()
-                .reduce((a, b) => intVal(a) + intVal(b), 0);
-
-            const formatPageTotal4 = new Intl.NumberFormat('en-US', {
-                maximumFractionDigits: 2,
-            }).format(pageTotal4);
+        $('#col0').on('keyup', function () {
+            table
+                .columns(0)
+                .search(this.value)
+                .draw();
+        });
 
 
-            api.column(15).footer().innerHTML =
-                // '$' + pageTotal + ' ( $' + total + ' total)';
-                // formatPageTotal +' '+ '('+ formattotal +' ' + ' total)';
-                formatPageTotal4;
+        $('#col1').on('keyup', function () {
+            table
+                .columns(1)
+                .search(this.value)
+                .draw();
+        });
+        $('#col2').on('keyup', function () {
+            table
+                .columns(2)
+                .search(this.value)
+                .draw();
+        });
+        $('#col3').on('keyup', function () {
+            table
+                .columns(3)
+                .search(this.value)
+                .draw();
+        });
+        $('#col4').on('keyup', function () {
+            table
+                .columns(4)
+                .search(this.value)
+                .draw();
+        });
+
+        // Sales
+        $('#col9').on('keyup', function () {
+            table
+                .columns(9)
+                .search(this.value)
+                .draw();
+        });
+        $('#col10').on('keyup', function () {
+            table
+                .columns(10)
+                .search(this.value)
+                .draw();
+        });
+        $('#col11').on('keyup', function () {
+            table
+                .columns(11)
+                .search(this.value)
+                .draw();
+        });
 
 
-        },
-
-
-    });
-
-    $('#col0').on('keyup', function () {
-        table
-            .columns(0)
-            .search(this.value)
-            .draw();
-    });
-
-
-
-    $('#col1').on('keyup', function () {
-        table
-            .columns(1)
-            .search(this.value)
-            .draw();
-    });
-    $('#col2').on('keyup', function () {
-        table
-            .columns(2)
-            .search(this.value)
-            .draw();
-    });
-    $('#col3').on('keyup', function () {
-        table
-            .columns(3)
-            .search(this.value)
-            .draw();
-    });
-    $('#col4').on('keyup', function () {
-        table
-            .columns(4)
-            .search(this.value)
-            .draw();
-    });
-
-    // Sales
-    $('#col9').on('keyup', function () {
-        table
-            .columns(9)
-            .search(this.value)
-            .draw();
-    });
-    $('#col10').on('keyup', function () {
-        table
-            .columns(10)
-            .search(this.value)
-            .draw();
-    });
-    $('#col11').on('keyup', function () {
-        table
-            .columns(11)
-            .search(this.value)
-            .draw();
-
-
-
-</script>
+    </script>
 @endif
 
-<script>
-
-    let table;
-
-    table = new DataTable('#example', {
-        //Generall SETTINGS
-        // lengthMenu: [10, 25, 50, {label: 'All', value: -1}],
-        lengthMenu: [ {label: 'All', value: -1}],
-        language: {
-            url: 'https://cdn.datatables.net/plug-ins/2.0.5/i18n/ka.json',
-        },
-        scrollX: true,
-        scrollY: 700,
-
-        layout: {
-
-            topStart: {
-                buttons: ['pageLength', 'colvis', 'excel'],
-                // pageLength: {
-                //   menu: [ 10, 25, 50, 100,5000 ]
-                // }
-            },
-
-            topEnd: {
-                search: '',
-            }
-        },
-
-        // TOTALS
-        footerCallback: function (row, data, start, end, display) {
-            let api = this.api();
-
-            let intVal = function (i) {
-                return typeof i === 'string'
-                    ? i.replace(/[\$,]/g, '') * 1
-                    : typeof i === 'number'
-                        ? i
-                        : 0;
-            };
-
-            // Purchase currency Totals
-            total = api
-                .column(7)
-                .data()
-                .reduce((a, b) => intVal(a) + intVal(b), 0);
+{{--Main Datatable--}}
+{{--<script>--}}
 
 
+{{--    let table;--}}
 
-            pageTotal = api
-                .column(7, {page: 'current'})
-                .data()
-                .reduce((a, b) => intVal(a) + intVal(b), 0);
+{{--    table = new DataTable('#example', {--}}
+{{--        //Generall SETTINGS--}}
+{{--        lengthMenu: [10, 100, 150, {label: 'All', value: -1}],--}}
+{{--        // lengthMenu: [{label: 'All', value: -1}],--}}
+{{--        language: {--}}
+{{--            url: 'https://cdn.datatables.net/plug-ins/2.0.5/i18n/ka.json',--}}
+{{--        },--}}
+{{--        scrollX: true,--}}
+{{--        scrollY: 700,--}}
 
-            const formatPageTotal = new Intl.NumberFormat('en-US', {
-                maximumFractionDigits: 2,
-            }).format(pageTotal);
+{{--        layout: {--}}
 
-            const formattotal = new Intl.NumberFormat('en-US', {
-                maximumFractionDigits: 2,
-            }).format(total);
-            // Update footer
+{{--            topStart: {--}}
+{{--                buttons: ['pageLength', 'colvis', 'excel'],--}}
+{{--                // pageLength: {--}}
+{{--                //   menu: [ 10, 25, 50, 100,5000 ]--}}
+{{--                // }--}}
+{{--            },--}}
 
-            api.column(7).footer().innerHTML =
-                // '$' + pageTotal + ' ( $' + total + ' total)';
-                // formatPageTotal +' '+ '('+ formattotal +' ' + ' total)';
-                formatPageTotal;
+{{--            topEnd: {--}}
+{{--                search: '',--}}
+{{--            }--}}
+{{--        },--}}
 
+{{--        // TOTALS--}}
+{{--        footerCallback: function (row, data, start, end, display) {--}}
+{{--            let api = this.api();--}}
 
+{{--            let intVal = function (i) {--}}
+{{--                return typeof i === 'string'--}}
+{{--                    ? i.replace(/[\$,]/g, '') * 1--}}
+{{--                    : typeof i === 'number'--}}
+{{--                        ? i--}}
+{{--                        : 0;--}}
+{{--            };--}}
 
-
-            // Purchase GEL Totals
-
-            // Total over this page
-            pageTotal2 = api
-                .column(9, {page: 'current'})
-                .data()
-                .reduce((a, b) => intVal(a) + intVal(b), 0);
-
-            const formatPageTotal2 = new Intl.NumberFormat('en-US', {
-                maximumFractionDigits: 2,
-            }).format(pageTotal2);
-
-
-            api.column(9).footer().innerHTML =
-                // '$' + pageTotal + ' ( $' + total + ' total)';
-                // formatPageTotal +' '+ '('+ formattotal +' ' + ' total)';
-                formatPageTotal2;
-
-
-
-            // Sales currency Totals
-
-            // Total over this page
-            pageTotal3 = api
-                .column(15, {page: 'current'})
-                .data()
-                .reduce((a, b) => intVal(a) + intVal(b), 0);
-
-            const formatPageTotal3 = new Intl.NumberFormat('en-US', {
-                maximumFractionDigits: 2,
-            }).format(pageTotal3);
+{{--            // Purchase currency Totals--}}
+{{--            total = api--}}
+{{--                .column(7)--}}
+{{--                .data()--}}
+{{--                .reduce((a, b) => intVal(a) + intVal(b), 0);--}}
 
 
-            api.column(15).footer().innerHTML =
-                // '$' + pageTotal + ' ( $' + total + ' total)';
-                // formatPageTotal +' '+ '('+ formattotal +' ' + ' total)';
-                formatPageTotal3;
+{{--            pageTotal = api--}}
+{{--                .column(7, {page: 'current'})--}}
+{{--                .data()--}}
+{{--                .reduce((a, b) => intVal(a) + intVal(b), 0);--}}
+
+{{--            const formatPageTotal = new Intl.NumberFormat('en-US', {--}}
+{{--                maximumFractionDigits: 2,--}}
+{{--            }).format(pageTotal);--}}
+
+{{--            const formattotal = new Intl.NumberFormat('en-US', {--}}
+{{--                maximumFractionDigits: 2,--}}
+{{--            }).format(total);--}}
+{{--            // Update footer--}}
+
+{{--            api.column(7).footer().innerHTML =--}}
+{{--                // '$' + pageTotal + ' ( $' + total + ' total)';--}}
+{{--                // formatPageTotal +' '+ '('+ formattotal +' ' + ' total)';--}}
+{{--                formatPageTotal;--}}
 
 
+{{--            // Purchase GEL Totals--}}
 
-            // Sales GEL Totals
+{{--            // Total over this page--}}
+{{--            pageTotal2 = api--}}
+{{--                .column(9, {page: 'current'})--}}
+{{--                .data()--}}
+{{--                .reduce((a, b) => intVal(a) + intVal(b), 0);--}}
 
-            pageTotal4 = api
-                .column(16, {page: 'current'})
-                .data()
-                .reduce((a, b) => intVal(a) + intVal(b), 0);
-
-            const formatPageTotal4 = new Intl.NumberFormat('en-US', {
-                maximumFractionDigits: 2,
-            }).format(pageTotal4);
-
-
-            api.column(16).footer().innerHTML =
-                // '$' + pageTotal + ' ( $' + total + ' total)';
-                // formatPageTotal +' '+ '('+ formattotal +' ' + ' total)';
-                formatPageTotal4;
+{{--            const formatPageTotal2 = new Intl.NumberFormat('en-US', {--}}
+{{--                maximumFractionDigits: 2,--}}
+{{--            }).format(pageTotal2);--}}
 
 
-        },
+{{--            api.column(9).footer().innerHTML =--}}
+{{--                // '$' + pageTotal + ' ( $' + total + ' total)';--}}
+{{--                // formatPageTotal +' '+ '('+ formattotal +' ' + ' total)';--}}
+{{--                formatPageTotal2;--}}
 
 
-    });
+{{--            // Sales currency Totals--}}
+
+{{--            // Total over this page--}}
+{{--            pageTotal3 = api--}}
+{{--                .column(15, {page: 'current'})--}}
+{{--                .data()--}}
+{{--                .reduce((a, b) => intVal(a) + intVal(b), 0);--}}
+
+{{--            const formatPageTotal3 = new Intl.NumberFormat('en-US', {--}}
+{{--                maximumFractionDigits: 2,--}}
+{{--            }).format(pageTotal3);--}}
 
 
+{{--            api.column(15).footer().innerHTML =--}}
+{{--                // '$' + pageTotal + ' ( $' + total + ' total)';--}}
+{{--                // formatPageTotal +' '+ '('+ formattotal +' ' + ' total)';--}}
+{{--                formatPageTotal3;--}}
 
 
-    $('#col0').on('keyup', function () {
-        table
-            .columns(1)
-            .search(this.value)
-            .draw();
-    });
+{{--            // Sales GEL Totals--}}
+
+{{--            pageTotal4 = api--}}
+{{--                .column(16, {page: 'current'})--}}
+{{--                .data()--}}
+{{--                .reduce((a, b) => intVal(a) + intVal(b), 0);--}}
+
+{{--            const formatPageTotal4 = new Intl.NumberFormat('en-US', {--}}
+{{--                maximumFractionDigits: 2,--}}
+{{--            }).format(pageTotal4);--}}
 
 
-    $('#col1').on('keyup', function () {
-        console.log( table
-            .columns(2).search(this.value))
-        table
-            .columns(2)
-            .search(this.value)
-            .draw();
-    });
+{{--            api.column(16).footer().innerHTML =--}}
+{{--                // '$' + pageTotal + ' ( $' + total + ' total)';--}}
+{{--                // formatPageTotal +' '+ '('+ formattotal +' ' + ' total)';--}}
+{{--                formatPageTotal4;--}}
 
 
-    $('#col2').on('keyup', function () {
-        table
-            .columns(3)
-            .search(this.value)
-            .draw();
-    });
-
-    $('#col3').on('keyup', function () {
-        table
-            .columns(4)
-            .search(this.value)
-            .draw();
-    });
-    $('#col4').on('keyup', function () {
-        table
-            .columns(5)
-            .search(this.value)
-            .draw();
-    });
+{{--        },--}}
 
 
-    // Sales
-    $('#col9').on('keyup', function () {
-        table
-            .columns(10)
-            .search(this.value)
-            .draw();
-    });
-    $('#col10').on('keyup', function () {
-        table
-            .columns(11)
-            .search(this.value)
-            .draw();
-    });
-    $('#col11').on('keyup', function () {
-        table
-            .columns(12)
-            .search(this.value)
-            .draw();
-    });
+{{--    });--}}
 
 
+{{--    $('#col0').on('keyup', function () {--}}
+{{--        table--}}
+{{--            .columns(1)--}}
+{{--            .search(this.value)--}}
+{{--            .draw();--}}
+{{--    });--}}
 
 
-</script>
+{{--    $('#col1').on('keyup', function () {--}}
+{{--        console.log(table--}}
+{{--            .columns(2).search(this.value))--}}
+{{--        table--}}
+{{--            .columns(2)--}}
+{{--            .search(this.value)--}}
+{{--            .draw();--}}
+{{--    });--}}
 
 
+{{--    $('#col2').on('keyup', function () {--}}
+{{--        table--}}
+{{--            .columns(3)--}}
+{{--            .search(this.value)--}}
+{{--            .draw();--}}
+{{--    });--}}
+
+{{--    $('#col3').on('keyup', function () {--}}
+{{--        table--}}
+{{--            .columns(4)--}}
+{{--            .search(this.value)--}}
+{{--            .draw();--}}
+{{--    });--}}
+{{--    $('#col4').on('keyup', function () {--}}
+{{--        table--}}
+{{--            .columns(5)--}}
+{{--            .search(this.value)--}}
+{{--            .draw();--}}
+{{--    });--}}
+
+
+{{--    // Sales--}}
+{{--    $('#col9').on('keyup', function () {--}}
+{{--        table--}}
+{{--            .columns(10)--}}
+{{--            .search(this.value)--}}
+{{--            .draw();--}}
+{{--    });--}}
+{{--    $('#col10').on('keyup', function () {--}}
+{{--        table--}}
+{{--            .columns(11)--}}
+{{--            .search(this.value)--}}
+{{--            .draw();--}}
+{{--    });--}}
+{{--    $('#col11').on('keyup', function () {--}}
+{{--        table--}}
+{{--            .columns(12)--}}
+{{--            .search(this.value)--}}
+{{--            .draw();--}}
+{{--    });--}}
+
+
+{{--</script>--}}
 
 <script>
-    let customerTable = new DataTable('#customerTable', {
-        //Generall SETTINGS
-        // lengthMenu: [10, 25, 50, {label: 'All', value: -1}],
-        lengthMenu: [ {label: 'All', value: -1}],
-        language: {
-            url: 'https://cdn.datatables.net/plug-ins/2.0.5/i18n/ka.json',
-        },
-        scrollX: true,
-        scrollY: 700,
-
-        layout: {
-
-            topStart: {
-                buttons: ['pageLength', 'excel'],
-
-        },
-
-    }
-    });
+    // let customerTable = new DataTable('#customerTable', {
+    //     //Generall SETTINGS
+    //     // lengthMenu: [10, 25, 50, {label: 'All', value: -1}],
+    //     lengthMenu: [{label: 'All', value: -1}],
+    //     language: {
+    //         url: 'https://cdn.datatables.net/plug-ins/2.0.5/i18n/ka.json',
+    //     },
+    //     scrollX: true,
+    //     scrollY: 700,
+    //
+    //     layout: {
+    //
+    //         topStart: {
+    //             buttons: ['pageLength', 'excel'],
+    //
+    //         },
+    //
+    //     }
+    // });
 </script>
 
 
 <script>
-    let changesTable = new DataTable('#changes', {
-        //Generall SETTINGS
-        lengthMenu: [ {label: 'All', value: -1}],
-        language: {
-            url: 'https://cdn.datatables.net/plug-ins/2.0.5/i18n/ka.json',
-        },
-        scrollX: true,
-        scrollY: 700,
-
-        layout: {
-
-            topStart: {
-                buttons: ['pageLength', 'excel'],
-
-            },
-
-        }
-    });
+    // let changesTable = new DataTable('#changes', {
+    //     //Generall SETTINGS
+    //     lengthMenu: [{label: 'All', value: -1}],
+    //     language: {
+    //         url: 'https://cdn.datatables.net/plug-ins/2.0.5/i18n/ka.json',
+    //     },
+    //     scrollX: true,
+    //     scrollY: 700,
+    //
+    //     layout: {
+    //
+    //         topStart: {
+    //             buttons: ['pageLength', 'excel'],
+    //
+    //         },
+    //
+    //     }
+    // });
 </script>
 
 
-
 <script>
-    let supplierTable = new DataTable('#supplierTable', {
-        //Generall SETTINGS
-        lengthMenu: [ {label: 'All', value: -1}],
-        language: {
-            url: 'https://cdn.datatables.net/plug-ins/2.0.5/i18n/ka.json',
-        },
-        scrollX: true,
-        scrollY: 700,
-
-        layout: {
-
-            topStart: {
-                buttons: ['pageLength', 'excel'],
-
-            },
-
-        }
-    });
+    // let supplierTable = new DataTable('#supplierTable', {
+    //     //Generall SETTINGS
+    //     lengthMenu: [{label: 'All', value: -1}],
+    //     language: {
+    //         url: 'https://cdn.datatables.net/plug-ins/2.0.5/i18n/ka.json',
+    //     },
+    //     scrollX: true,
+    //     scrollY: 700,
+    //
+    //     layout: {
+    //
+    //         topStart: {
+    //             buttons: ['pageLength', 'excel'],
+    //
+    //         },
+    //
+    //     }
+    // });
 
 
 </script>
 
 @if(request()->routeIs('main')||request()->routeIs('purchase.edit')||request()->routeIs('sales.edit'))
-{{--  Purchase   Dynamic Addition--}}
-<script>
-    // Initialise the user number
-    var userNum = 1;
+    {{--  Purchase   Dynamic Addition--}}
+    <script>
+        // Initialise the user number
+        var userNum = 1;
 
-    document
-        .getElementById("addition")
-        .addEventListener("click", function () {
-            // Get the template and clone it
-            var template = document.getElementById("myTemplate");
-            var clonedTemplate = document.importNode(template.content, true);
+        document
+            .getElementById("addition")
+            .addEventListener("click", function () {
+                // Get the template and clone it
+                var template = document.getElementById("myTemplate");
+                var clonedTemplate = document.importNode(template.content, true);
 
-            // Set the user number and ptagX class in the cloned template
-            var clone = clonedTemplate.querySelector(".clone");
-            clone.classList.add("clone" + userNum);
-            // clone.querySelector(".userNum").textContent = userNum;
+                // Set the user number and ptagX class in the cloned template
+                var clone = clonedTemplate.querySelector(".clone");
+                clone.classList.add("clone" + userNum);
+                // clone.querySelector(".userNum").textContent = userNum;
 
-            // Append the cloned template to the div
-            document.getElementById("myDiv").appendChild(clonedTemplate);
+                // Append the cloned template to the div
+                document.getElementById("myDiv").appendChild(clonedTemplate);
 
-            // Increment the user number
-            userNum++;
-        });
-
-    // Delegate the event
-    document.getElementById("myDiv").addEventListener("click", function (e) {
-
-        if (e.target.classList.contains("removeButton")) {
-            // Remove the parent node (the paragraph)
-            e.target.parentNode.remove();
-        }
-
-    });
-
-
-
-
-
-</script>
-{{--  Sales   Dynamic Addition--}}
-<script>
-    // Initialise the user number
-    var userNum = 1;
-
-    document
-        .getElementById("addition2")
-        .addEventListener("click", function () {
-            // Get the template and clone it
-            var template2 = document.getElementById("myTemplate2");
-            var clonedTemplate2 = document.importNode(template2.content, true);
-
-            // Set the user number and ptagX class in the cloned template
-            var clone = clonedTemplate2.querySelector(".tomSelect");
-            clone.classList.add("tomSelect" + userNum);
-            clone.id='salesTomSelect'+userNum
-            // clone.querySelector(".userNum").textContent = userNum;
-
-            // Append the cloned template to the div
-            document.getElementById("myDiv2").appendChild(clonedTemplate2);
-
-
-            // Tom select for Remains
-            new TomSelect("#salesTomSelect"+userNum, {
-                create: true,
-                sortField: {
-                    field: "text",
-                    direction: "asc"
-                }
+                // Increment the user number
+                userNum++;
             });
-            // Increment the user number
-            userNum++;
+
+        // Delegate the event
+        document.getElementById("myDiv").addEventListener("click", function (e) {
+
+            if (e.target.classList.contains("removeButton")) {
+                // Remove the parent node (the paragraph)
+                e.target.parentNode.remove();
+            }
 
         });
 
-    // Delegate the event
-    document.getElementById("myDiv2").addEventListener("click", function (e) {
 
-        if (e.target.classList.contains("removeButton")) {
-            // Remove the parent node (the paragraph)
-            e.target.parentNode.remove();
-        }
+    </script>
+    {{--  Sales   Dynamic Addition--}}
+    <script>
+        // Initialise the user number
+        var userNum = 1;
 
-    });
+        document
+            .getElementById("addition2")
+            .addEventListener("click", function () {
+                // Get the template and clone it
+                var template2 = document.getElementById("myTemplate2");
+                var clonedTemplate2 = document.importNode(template2.content, true);
+
+                // Set the user number and ptagX class in the cloned template
+                var clone = clonedTemplate2.querySelector(".tomSelect");
+                clone.classList.add("tomSelect" + userNum);
+                clone.id = 'salesTomSelect' + userNum
+                // clone.querySelector(".userNum").textContent = userNum;
+
+                // Append the cloned template to the div
+                document.getElementById("myDiv2").appendChild(clonedTemplate2);
 
 
+                // Tom select for Remains
+                new TomSelect("#salesTomSelect" + userNum, {
+                    create: true,
+                    sortField: {
+                        field: "text",
+                        direction: "asc"
+                    }
+                });
+                // Increment the user number
+                userNum++;
+
+            });
+
+        // Delegate the event
+        document.getElementById("myDiv2").addEventListener("click", function (e) {
+
+            if (e.target.classList.contains("removeButton")) {
+                // Remove the parent node (the paragraph)
+                e.target.parentNode.remove();
+            }
+
+        });
 
 
-
-</script>
+    </script>
 @endif
 
 {{--PURCHASE SALES SUM and EX rate--}}
@@ -1241,14 +1222,13 @@ w
     const reviews = document.querySelectorAll('.review');
     const changereviewforms = document.querySelectorAll('.changereviewform');
 
-    reviews.forEach((e,index) => {
+    reviews.forEach((e, index) => {
         console.log(e)
         e.addEventListener('change', () => {
             changereviewforms[index].submit();
         });
     });
 </script>
-
 
 
 <script>

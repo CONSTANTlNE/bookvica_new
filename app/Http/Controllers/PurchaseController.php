@@ -109,6 +109,7 @@ class PurchaseController extends Controller
             $book = Book::find($book_id);
             if ($book->title != $validated['title'][$index]) {
                 Log::channel('CRUD')->info('Book : '.$book->title.' Title changed to: '.$validated['title'][$index].' by user: '.auth()->user()->name.'  Book ID: '.$book->id .'   Purchase Invoice: '.$purchaseInvoice->invoice_number);
+                Log::channel('CRUD')->info('Book : '.$book->title.' Title changed to: '.$validated['title'][$index].' by user: '.auth()->user()->name.'  Book ID: '.$book->id .'   Purchase Invoice: '.$purchaseInvoice->invoice_number);
 
                 $book->title = $validated['title'][$index];
 
@@ -242,6 +243,8 @@ class PurchaseController extends Controller
                 $book->delete();
             }
         }
+
+
 
 
         if ($request->hasFile('invoice')) {
